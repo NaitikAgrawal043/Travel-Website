@@ -1,24 +1,6 @@
-/*-----------------------------------*\
-  #style.css
-\*-----------------------------------*/
-
-/**
- * copyright 2022 codewithsadee
- */
-
-
-
-
-
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
 
 :root {
 
-  /**
-   * colors
-   */
 
   --battleship-gray: hsl(0, 0%, 53%);
   --viridian-green: hsl(180, 98%, 31%);
@@ -720,15 +702,9 @@ body {
   #RESPONSIVE
 \*-----------------------------------*/
 
-/**
- * responsive for larger than 575px screen 
- */
 
 @media (min-width: 575px) {
 
-  /**
-   * CUSTOM PROPERTY
-   */
 
   :root {
 
@@ -838,10 +814,6 @@ body {
  */
 
 @media (min-width: 992px) {
-
-  /**
-   * CUSTOM PROPERTY
-   */
 
   :root {
 
@@ -990,10 +962,6 @@ body {
 
 @media (min-width: 1200px) {
 
-  /**
-   * CUSTOM PROPERTY
-   */
-
   :root {
 
     /**
@@ -1029,5 +997,6 @@ body {
    */
 
   .about .container { grid-template-columns: 0.7fr 1fr; }
+
 
 }
