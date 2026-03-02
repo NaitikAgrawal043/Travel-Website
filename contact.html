@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - TripWise</title>
+    <meta name="description"
+        content="Get in touch with TripWise. We're here to help with your travel plans and answer any questions.">
+    <meta name="author" content="Naitik Agrawal">
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comforter+Brush&family=Heebo:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="top">
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <header class="header" data-header>
+        <div class="container">
+            <a href="/index.html">
+                <h1 class="logo">TripWise</h1>
+            </a>
+            <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle navigation menu"
+                aria-expanded="false">
+                <ion-icon name="menu-outline" class="open" aria-hidden="true"></ion-icon>
+                <ion-icon name="close-outline" class="close" aria-hidden="true"></ion-icon>
+            </button>
+            <nav class="navbar" id="main-nav" role="navigation" aria-label="Main navigation">
+                <ul class="navbar-list">
+                    <li><a href="/index.html" class="navbar-link">Home</a></li>
+                    <li><a href="/tours.html" class="navbar-link">Tours</a></li>
+                    <li><a href="/blog.html" class="navbar-link">Blog</a></li>
+                    <li><a href="/contact.html" class="navbar-link">Contact Us</a></li>
+                </ul>
+                <a href="/auth.html" class="btn btn-secondary">Login / Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-hero">
+            <div class="container">
+                <p class="section-subtitle">Contact</p>
+                <h2 class="h2 section-title">Get In Touch</h2>
+                <p class="page-hero-text">Have a question? We'd love to hear from you!</p>
+            </div>
+        </section>
+
+        <section class="section contact-section">
+            <div class="container">
+                <div class="contact-grid">
+
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <h3 class="h3">We're Here to Help</h3>
+                        <p>Whether you have a question about tours, pricing, or anything else, our team is ready to
+                            answer all your questions.</p>
+
+                        <div class="contact-info-list">
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+                                </div>
+                                <div>
+                                    <h4>Our Office</h4>
+                                    <p>123 Travel Lane, New Delhi, India</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+                                </div>
+                                <div>
+                                    <h4>Email Us</h4>
+                                    <p>hello@tripwise.com</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+                                </div>
+                                <div>
+                                    <h4>Call Us</h4>
+                                    <p>+91 98765 43210</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-item">
+                                <div class="contact-icon">
+                                    <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+                                </div>
+                                <div>
+                                    <h4>Working Hours</h4>
+                                    <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-wrapper">
+                        <form id="contact-form" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact-name">Full Name</label>
+                                    <input type="text" id="contact-name" name="name" required
+                                        placeholder="Your full name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-email">Email Address</label>
+                                    <input type="email" id="contact-email" name="email" required
+                                        placeholder="your@email.com">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-subject">Subject</label>
+                                <select id="contact-subject" name="subject">
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Tour Information">Tour Information</option>
+                                    <option value="Booking Help">Booking Help</option>
+                                    <option value="Partnership">Partnership</option>
+                                    <option value="Feedback">Feedback</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-message">Message</label>
+                                <textarea id="contact-message" name="message" required
+                                    placeholder="Tell us how we can help..." rows="6"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full" id="contact-btn">
+                                <ion-icon name="send-outline" aria-hidden="true"></ion-icon>
+                                Send Message
+                            </button>
+                            <div class="form-feedback" aria-live="polite" id="contact-feedback"></div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="background-image: url('./assets/images/footer-bg.png')">
+        <div class="container">
+            <div class="footer-bottom">
+                <a href="/index.html" class="logo">TripWise</a>
+                <p class="copyright">&copy; 2026 <a href="#" class="copyright-link">Naitik Agrawal</a>. All Rights
+                    Reserved</p>
+                <ul class="social-list">
+                    <li><a href="#" class="social-link" aria-label="Facebook"><ion-icon name="logo-facebook"
+                                aria-hidden="true"></ion-icon></a></li>
+                    <li><a href="#" class="social-link" aria-label="Twitter"><ion-icon name="logo-twitter"
+                                aria-hidden="true"></ion-icon></a></li>
+                    <li><a href="#" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"
+                                aria-hidden="true"></ion-icon></a></li>
+                    <li><a href="https://www.linkedin.com/in/naitik-agrawal-9b832128a" class="social-link"
+                            aria-label="LinkedIn"><ion-icon name="logo-linkedin" aria-hidden="true"></ion-icon></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#top" class="go-top" data-go-top aria-label="Go To Top"><ion-icon name="chevron-up-outline"></ion-icon></a>
+
+    <script src="./assets/js/api.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const feedback = document.getElementById('contact-feedback');
+            const btn = document.getElementById('contact-btn');
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const subject = document.getElementById('contact-subject').value;
+            const message = document.getElementById('contact-message').value.trim();
+
+            if (!name || !email || !message) {
+                feedback.textContent = 'Please fill in all required fields.';
+                feedback.className = 'form-feedback error';
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<ion-icon name="hourglass-outline" aria-hidden="true"></ion-icon> Sending...';
+
+            try {
+                const result = await TripWise.sendContact({ name, email, subject, message });
+                feedback.textContent = result.message;
+                feedback.className = 'form-feedback success';
+                document.getElementById('contact-form').reset();
+                btn.innerHTML = '<ion-icon name="checkmark-circle-outline" aria-hidden="true"></ion-icon> Sent!';
+            } catch (err) {
+                feedback.textContent = err.message;
+                feedback.className = 'form-feedback error';
+                btn.disabled = false;
+                btn.innerHTML = '<ion-icon name="send-outline" aria-hidden="true"></ion-icon> Send Message';
+            }
+        });
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

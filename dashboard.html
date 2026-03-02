@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard - TripWise</title>
+    <meta name="description" content="View your bookings and manage your TripWise account.">
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comforter+Brush&family=Heebo:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="top">
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <header class="header" data-header>
+        <div class="container">
+            <a href="/index.html">
+                <h1 class="logo">TripWise</h1>
+            </a>
+            <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle navigation menu"
+                aria-expanded="false">
+                <ion-icon name="menu-outline" class="open" aria-hidden="true"></ion-icon>
+                <ion-icon name="close-outline" class="close" aria-hidden="true"></ion-icon>
+            </button>
+            <nav class="navbar" id="main-nav" role="navigation" aria-label="Main navigation">
+                <ul class="navbar-list">
+                    <li><a href="/index.html" class="navbar-link">Home</a></li>
+                    <li><a href="/tours.html" class="navbar-link">Tours</a></li>
+                    <li><a href="/blog.html" class="navbar-link">Blog</a></li>
+                    <li><a href="/contact.html" class="navbar-link">Contact Us</a></li>
+                </ul>
+                <a href="/dashboard.html" class="btn btn-secondary">My Bookings</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-hero">
+            <div class="container">
+                <p class="section-subtitle">Dashboard</p>
+                <h2 class="h2 section-title">My Bookings</h2>
+                <p class="page-hero-text">Welcome back, <span id="user-name">traveler</span>!</p>
+            </div>
+        </section>
+
+        <section class="section dashboard-section">
+            <div class="container">
+
+                <!-- Quick Actions -->
+                <div class="dashboard-actions">
+                    <a href="/tours.html" class="btn btn-primary">
+                        <ion-icon name="compass-outline" aria-hidden="true"></ion-icon> Browse Tours
+                    </a>
+                    <button class="btn btn-outline" id="logout-btn">
+                        <ion-icon name="log-out-outline" aria-hidden="true"></ion-icon> Logout
+                    </button>
+                </div>
+
+                <!-- Bookings Table -->
+                <div class="dashboard-card">
+                    <h3 class="h3 dashboard-card-title">Your Bookings</h3>
+
+                    <div class="table-responsive">
+                        <table class="data-table" id="bookings-table">
+                            <thead>
+                                <tr>
+                                    <th>Tour</th>
+                                    <th>Date</th>
+                                    <th>Guests</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bookings-body">
+                                <tr>
+                                    <td colspan="6" class="table-loading">Loading bookings...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="empty-state hidden" id="no-bookings">
+                        <ion-icon name="airplane-outline" aria-hidden="true"></ion-icon>
+                        <h3>No bookings yet</h3>
+                        <p>Start exploring tours and book your next adventure!</p>
+                        <a href="/tours.html" class="btn btn-primary">Browse Tours</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="background-image: url('./assets/images/footer-bg.png')">
+        <div class="container">
+            <div class="footer-bottom">
+                <a href="/index.html" class="logo">TripWise</a>
+                <p class="copyright">&copy; 2026 <a href="#" class="copyright-link">Naitik Agrawal</a>. All Rights
+                    Reserved</p>
+                <ul class="social-list">
+                    <li><a href="#" class="social-link" aria-label="Facebook"><ion-icon name="logo-facebook"
+                                aria-hidden="true"></ion-icon></a></li>
+                    <li><a href="#" class="social-link" aria-label="Twitter"><ion-icon name="logo-twitter"
+                                aria-hidden="true"></ion-icon></a></li>
+                    <li><a href="#" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"
+                                aria-hidden="true"></ion-icon></a></li>
+                    <li><a href="https://www.linkedin.com/in/naitik-agrawal-9b832128a" class="social-link"
+                            aria-label="LinkedIn"><ion-icon name="logo-linkedin" aria-hidden="true"></ion-icon></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#top" class="go-top" data-go-top aria-label="Go To Top"><ion-icon name="chevron-up-outline"></ion-icon></a>
+
+    <script src="./assets/js/api.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script>
+        // Auth guard
+        if (!TripWise.isLoggedIn()) {
+            window.location.href = '/auth.html';
+        }
+
+        const user = TripWise.getUser();
+        if (user) {
+            document.getElementById('user-name').textContent = user.name;
+        }
+
+        document.getElementById('logout-btn').addEventListener('click', () => TripWise.logout());
+
+        async function loadBookings() {
+            try {
+                const result = await TripWise.getBookings({ limit: 50 });
+                const tbody = document.getElementById('bookings-body');
+
+                if (result.data.length === 0) {
+                    document.getElementById('bookings-table').style.display = 'none';
+                    document.getElementById('no-bookings').classList.remove('hidden');
+                    return;
+                }
+
+                tbody.innerHTML = result.data.map(b => `
+          <tr>
+            <td>
+              <div class="booking-tour-info">
+                ${b.tour ? `<img src="${b.tour.image}" alt="${b.tourTitle}" width="60" height="40" class="booking-thumb">` : ''}
+                <span>${b.tourTitle}</span>
+              </div>
+            </td>
+            <td>${TripWise.formatDate(b.date)}</td>
+            <td>${b.guests}</td>
+            <td>${TripWise.formatPrice(b.totalPrice)}</td>
+            <td><span class="status-badge status-${b.status}">${b.status}</span></td>
+            <td>
+              ${b.status === 'pending' ? `<button class="btn btn-sm btn-outline cancel-btn" data-id="${b.id}" aria-label="Cancel booking">Cancel</button>` : '-'}
+            </td>
+          </tr>
+        `).join('');
+
+                // Cancel buttons
+                document.querySelectorAll('.cancel-btn').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        if (confirm('Are you sure you want to cancel this booking?')) {
+                            try {
+                                await TripWise.cancelBooking(btn.dataset.id);
+                                TripWise.showToast('Booking cancelled successfully.');
+                                loadBookings();
+                            } catch (err) {
+                                TripWise.showToast(err.message, 'error');
+                            }
+                        }
+                    });
+                });
+            } catch (err) {
+                document.getElementById('bookings-body').innerHTML = `<tr><td colspan="6" class="error-text">Failed to load bookings.</td></tr>`;
+            }
+        }
+
+        loadBookings();
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

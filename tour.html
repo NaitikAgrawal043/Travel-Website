@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Details - TripWise</title>
+    <meta name="description" content="View tour details, read reviews, and book your next adventure on TripWise.">
+    <meta name="author" content="Naitik Agrawal">
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comforter+Brush&family=Heebo:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="top">
+
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <!-- HEADER -->
+    <header class="header" data-header>
+        <div class="container">
+            <a href="/index.html">
+                <h1 class="logo">TripWise</h1>
+            </a>
+            <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle navigation menu"
+                aria-expanded="false">
+                <ion-icon name="menu-outline" class="open" aria-hidden="true"></ion-icon>
+                <ion-icon name="close-outline" class="close" aria-hidden="true"></ion-icon>
+            </button>
+            <nav class="navbar" id="main-nav" role="navigation" aria-label="Main navigation">
+                <ul class="navbar-list">
+                    <li><a href="/index.html" class="navbar-link">Home</a></li>
+                    <li><a href="/tours.html" class="navbar-link">Tours</a></li>
+                    <li><a href="/blog.html" class="navbar-link">Blog</a></li>
+                    <li><a href="/contact.html" class="navbar-link">Contact Us</a></li>
+                </ul>
+                <a href="/auth.html" class="btn btn-secondary">Login / Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="section tour-detail-section">
+            <div class="container">
+
+                <!-- Loading State -->
+                <div class="loading-state" id="loading-state">
+                    <div class="spinner"></div>
+                    <p>Loading tour details...</p>
+                </div>
+
+                <!-- Tour Content -->
+                <div class="tour-detail hidden" id="tour-detail">
+
+                    <!-- Breadcrumb -->
+                    <nav class="breadcrumb" aria-label="Breadcrumb">
+                        <a href="/index.html">Home</a> <span>/</span>
+                        <a href="/tours.html">Tours</a> <span>/</span>
+                        <span id="breadcrumb-title">Tour</span>
+                    </nav>
+
+                    <div class="tour-detail-grid">
+
+                        <!-- Left: Tour Info -->
+                        <div class="tour-info">
+                            <figure class="tour-hero-image">
+                                <img id="tour-image" src="" alt="" class="img-cover" width="800" height="500">
+                            </figure>
+
+                            <div class="tour-meta">
+                                <span class="tour-meta-item" id="tour-duration">
+                                    <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+                                    <span></span>
+                                </span>
+                                <span class="tour-meta-item" id="tour-difficulty">
+                                    <ion-icon name="fitness-outline" aria-hidden="true"></ion-icon>
+                                    <span></span>
+                                </span>
+                                <span class="tour-meta-item" id="tour-group">
+                                    <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+                                    <span></span>
+                                </span>
+                                <span class="tour-meta-item" id="tour-location-meta">
+                                    <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+                                    <span></span>
+                                </span>
+                            </div>
+
+                            <h2 class="h2 tour-title" id="tour-title"></h2>
+
+                            <div class="tour-rating" id="tour-rating"></div>
+
+                            <div class="tour-description" id="tour-description"></div>
+
+                            <!-- Highlights -->
+                            <div class="tour-section" id="highlights-section">
+                                <h3 class="h3">Highlights</h3>
+                                <ul class="highlights-list" id="tour-highlights"></ul>
+                            </div>
+
+                            <!-- What's Included -->
+                            <div class="tour-section" id="included-section">
+                                <h3 class="h3">What's Included</h3>
+                                <div class="included-grid">
+                                    <div>
+                                        <h4 class="included-title included-yes">
+                                            <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon> Included
+                                        </h4>
+                                        <ul id="tour-included"></ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="included-title included-no">
+                                            <ion-icon name="close-circle" aria-hidden="true"></ion-icon> Not Included
+                                        </h4>
+                                        <ul id="tour-not-included"></ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Reviews -->
+                            <div class="tour-section">
+                                <h3 class="h3">Reviews</h3>
+                                <div id="reviews-list"></div>
+
+                                <!-- Write Review -->
+                                <div class="write-review hidden" id="write-review">
+                                    <h4>Write a Review</h4>
+                                    <form id="review-form" novalidate>
+                                        <div class="star-selector" id="star-selector">
+                                            <ion-icon name="star-outline" data-rating="1"
+                                                aria-label="1 star"></ion-icon>
+                                            <ion-icon name="star-outline" data-rating="2"
+                                                aria-label="2 stars"></ion-icon>
+                                            <ion-icon name="star-outline" data-rating="3"
+                                                aria-label="3 stars"></ion-icon>
+                                            <ion-icon name="star-outline" data-rating="4"
+                                                aria-label="4 stars"></ion-icon>
+                                            <ion-icon name="star-outline" data-rating="5"
+                                                aria-label="5 stars"></ion-icon>
+                                        </div>
+                                        <textarea id="review-comment" placeholder="Share your experience..." rows="4"
+                                            aria-label="Your review"></textarea>
+                                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                                        <div class="form-feedback" aria-live="polite" id="review-feedback"></div>
+                                    </form>
+                                </div>
+
+                                <div id="login-to-review" class="login-prompt hidden">
+                                    <p><a href="/auth.html">Login</a> to write a review</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Booking Sidebar -->
+                        <aside class="booking-sidebar">
+                            <div class="booking-card">
+                                <div class="booking-price">
+                                    <span class="price-label">From</span>
+                                    <span class="price-amount" id="tour-price">$0</span>
+                                    <span class="price-per">/ person</span>
+                                </div>
+
+                                <form id="booking-form" novalidate>
+                                    <div class="form-group">
+                                        <label for="booking-date">Travel Date</label>
+                                        <input type="date" id="booking-date" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="booking-guests">Guests</label>
+                                        <select id="booking-guests" required>
+                                            <option value="1">1 Guest</option>
+                                            <option value="2">2 Guests</option>
+                                            <option value="3">3 Guests</option>
+                                            <option value="4">4 Guests</option>
+                                            <option value="5">5 Guests</option>
+                                            <option value="6">6+ Guests</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="booking-requests">Special Requests</label>
+                                        <textarea id="booking-requests" placeholder="Any special requirements?"
+                                            rows="3"></textarea>
+                                    </div>
+
+                                    <div class="booking-total">
+                                        <span>Total:</span>
+                                        <span id="booking-total-price">$0</span>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary btn-full" id="book-btn">Book
+                                        Now</button>
+                                    <div class="form-feedback" aria-live="polite" id="booking-feedback"></div>
+                                </form>
+
+                                <div class="booking-login hidden" id="booking-login">
+                                    <p>Please <a href="/auth.html">login</a> to book this tour</p>
+                                </div>
+                            </div>
+                        </aside>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" style="background-image: url('./assets/images/footer-bg.png')">
+        <div class="container">
+            <div class="footer-bottom">
+                <a href="/index.html" class="logo">TripWise</a>
+                <p class="copyright">&copy; 2026 <a href="#" class="copyright-link">Naitik Agrawal</a>. All Rights
+                    Reserved</p>
+                <ul class="social-list">
+                    <li><a href="#" class="social-link" aria-label="Facebook"><ion-icon name="logo-facebook"
+                                aria-hidden="true"></ion-icon></a></li>
+                    <li><a href="#" class="social-link" aria-label="Twitter"><ion-icon name="logo-twitter"
+                                aria-hidden="true"></ion-icon></a></li>
+                    <li><a href="#" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"
+                                aria-hidden="true"></ion-icon></a></li>
+                    <li><a href="https://www.linkedin.com/in/naitik-agrawal-9b832128a" class="social-link"
+                            aria-label="LinkedIn"><ion-icon name="logo-linkedin" aria-hidden="true"></ion-icon></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#top" class="go-top" data-go-top aria-label="Go To Top"><ion-icon name="chevron-up-outline"></ion-icon></a>
+
+    <script src="./assets/js/api.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const tourId = params.get('id');
+        let tourData = null;
+        let selectedRating = 0;
+
+        async function loadTour() {
+            if (!tourId) {
+                window.location.href = '/tours.html';
+                return;
+            }
+
+            try {
+                tourData = await TripWise.getTour(tourId);
+                document.getElementById('loading-state').classList.add('hidden');
+                document.getElementById('tour-detail').classList.remove('hidden');
+
+                // Update page title
+                document.title = `${tourData.title} - TripWise`;
+
+                // Populate data
+                document.getElementById('breadcrumb-title').textContent = tourData.title;
+                document.getElementById('tour-image').src = tourData.image;
+                document.getElementById('tour-image').alt = tourData.title;
+                document.getElementById('tour-title').textContent = tourData.title;
+                document.getElementById('tour-description').innerHTML = `<p>${tourData.description}</p>`;
+                document.getElementById('tour-price').textContent = TripWise.formatPrice(tourData.price);
+
+                // Meta
+                document.querySelector('#tour-duration span').textContent = tourData.duration;
+                document.querySelector('#tour-difficulty span').textContent = tourData.difficulty;
+                document.querySelector('#tour-group span').textContent = `Max ${tourData.maxGroupSize} people`;
+                document.querySelector('#tour-location-meta span').textContent = `${tourData.location}, ${tourData.country}`;
+
+                // Rating
+                document.getElementById('tour-rating').innerHTML = `
+          <div class="card-rating inline-rating">
+            ${TripWise.renderStars(tourData.rating)}
+            <span>${tourData.rating}/5 (${tourData.reviewCount} reviews)</span>
+          </div>`;
+
+                // Highlights
+                if (tourData.highlights && tourData.highlights.length > 0) {
+                    document.getElementById('tour-highlights').innerHTML = tourData.highlights
+                        .map(h => `<li><ion-icon name="checkmark-outline" aria-hidden="true"></ion-icon> ${h}</li>`).join('');
+                }
+
+                // Included
+                if (tourData.included) {
+                    document.getElementById('tour-included').innerHTML = tourData.included
+                        .map(i => `<li><ion-icon name="checkmark-outline" aria-hidden="true"></ion-icon> ${i}</li>`).join('');
+                }
+                if (tourData.notIncluded) {
+                    document.getElementById('tour-not-included').innerHTML = tourData.notIncluded
+                        .map(i => `<li><ion-icon name="close-outline" aria-hidden="true"></ion-icon> ${i}</li>`).join('');
+                }
+
+                // Reviews
+                if (tourData.reviews && tourData.reviews.length > 0) {
+                    document.getElementById('reviews-list').innerHTML = tourData.reviews.map(r => `
+            <div class="review-item">
+              <div class="review-header">
+                <strong>${r.userName}</strong>
+                <div class="card-rating">${TripWise.renderStars(r.rating)}</div>
+                <time>${TripWise.formatDate(r.createdAt)}</time>
+              </div>
+              <p>${r.comment}</p>
+            </div>
+          `).join('');
+                } else {
+                    document.getElementById('reviews-list').innerHTML = '<p class="no-reviews">No reviews yet. Be the first to review!</p>';
+                }
+
+                // Show review form or login prompt
+                if (TripWise.isLoggedIn()) {
+                    document.getElementById('write-review').classList.remove('hidden');
+                } else {
+                    document.getElementById('login-to-review').classList.remove('hidden');
+                }
+
+                // Booking form
+                if (TripWise.isLoggedIn()) {
+                    document.getElementById('booking-form').classList.remove('hidden');
+                    document.getElementById('booking-login').classList.add('hidden');
+                } else {
+                    document.getElementById('booking-form').style.display = 'none';
+                    document.getElementById('booking-login').classList.remove('hidden');
+                }
+
+                // Set min date to tomorrow
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                document.getElementById('booking-date').min = tomorrow.toISOString().split('T')[0];
+
+                // Update total on guest change
+                updateTotal();
+            } catch (err) {
+                document.getElementById('loading-state').innerHTML = `<p class="error-text">Tour not found. <a href="/tours.html">Browse all tours</a></p>`;
+            }
+        }
+
+        function updateTotal() {
+            if (!tourData) return;
+            const guests = parseInt(document.getElementById('booking-guests').value) || 1;
+            document.getElementById('booking-total-price').textContent = TripWise.formatPrice(tourData.price * guests);
+        }
+
+        document.getElementById('booking-guests').addEventListener('change', updateTotal);
+
+        // Booking submission
+        document.getElementById('booking-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const feedback = document.getElementById('booking-feedback');
+            const date = document.getElementById('booking-date').value;
+            const guests = document.getElementById('booking-guests').value;
+            const requests = document.getElementById('booking-requests').value;
+
+            if (!date) {
+                feedback.textContent = 'Please select a travel date.';
+                feedback.className = 'form-feedback error';
+                return;
+            }
+
+            const btn = document.getElementById('book-btn');
+            btn.disabled = true;
+            btn.textContent = 'Booking...';
+
+            try {
+                await TripWise.createBooking({
+                    tourId: tourData.id,
+                    date,
+                    guests,
+                    specialRequests: requests
+                });
+                feedback.textContent = 'Booking submitted successfully! Check your dashboard for updates.';
+                feedback.className = 'form-feedback success';
+                btn.textContent = 'Booked!';
+            } catch (err) {
+                feedback.textContent = err.message;
+                feedback.className = 'form-feedback error';
+                btn.disabled = false;
+                btn.textContent = 'Book Now';
+            }
+        });
+
+        // Star rating selector
+        document.querySelectorAll('#star-selector ion-icon').forEach(star => {
+            star.addEventListener('click', () => {
+                selectedRating = parseInt(star.dataset.rating);
+                document.querySelectorAll('#star-selector ion-icon').forEach((s, i) => {
+                    s.setAttribute('name', i < selectedRating ? 'star' : 'star-outline');
+                });
+            });
+            star.addEventListener('mouseenter', () => {
+                const hoverRating = parseInt(star.dataset.rating);
+                document.querySelectorAll('#star-selector ion-icon').forEach((s, i) => {
+                    s.setAttribute('name', i < hoverRating ? 'star' : 'star-outline');
+                });
+            });
+        });
+        document.getElementById('star-selector').addEventListener('mouseleave', () => {
+            document.querySelectorAll('#star-selector ion-icon').forEach((s, i) => {
+                s.setAttribute('name', i < selectedRating ? 'star' : 'star-outline');
+            });
+        });
+
+        // Review submission
+        document.getElementById('review-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const feedback = document.getElementById('review-feedback');
+            const comment = document.getElementById('review-comment').value.trim();
+
+            if (selectedRating === 0) {
+                feedback.textContent = 'Please select a star rating.';
+                feedback.className = 'form-feedback error';
+                return;
+            }
+
+            try {
+                await TripWise.submitReview(tourData.id, selectedRating, comment);
+                feedback.textContent = 'Review submitted! It will appear after approval.';
+                feedback.className = 'form-feedback success';
+                document.getElementById('review-comment').value = '';
+                selectedRating = 0;
+                document.querySelectorAll('#star-selector ion-icon').forEach(s => s.setAttribute('name', 'star-outline'));
+            } catch (err) {
+                feedback.textContent = err.message;
+                feedback.className = 'form-feedback error';
+            }
+        });
+
+        loadTour();
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - TripWise</title>
+    <meta name="description" content="TripWise Admin Dashboard - Manage tours, bookings, blogs, reviews, and users.">
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comforter+Brush&family=Heebo:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="top">
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <header class="header" data-header>
+        <div class="container">
+            <a href="/index.html">
+                <h1 class="logo">TripWise</h1>
+            </a>
+            <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle navigation menu"
+                aria-expanded="false">
+                <ion-icon name="menu-outline" class="open" aria-hidden="true"></ion-icon>
+                <ion-icon name="close-outline" class="close" aria-hidden="true"></ion-icon>
+            </button>
+            <nav class="navbar" id="main-nav" role="navigation" aria-label="Main navigation">
+                <ul class="navbar-list">
+                    <li><a href="/index.html" class="navbar-link">Home</a></li>
+                    <li><a href="/tours.html" class="navbar-link">Tours</a></li>
+                    <li><a href="/blog.html" class="navbar-link">Blog</a></li>
+                    <li><a href="/contact.html" class="navbar-link">Contact Us</a></li>
+                </ul>
+                <a href="/admin.html" class="btn btn-secondary">Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-hero admin-hero">
+            <div class="container">
+                <p class="section-subtitle">Admin Panel</p>
+                <h2 class="h2 section-title">Dashboard</h2>
+                <p class="page-hero-text">Welcome, <span id="admin-name">Admin</span></p>
+            </div>
+        </section>
+
+        <section class="section admin-section">
+            <div class="container">
+
+                <!-- Admin Navigation Tabs -->
+                <div class="admin-tabs" role="tablist">
+                    <button class="admin-tab active" data-panel="overview" role="tab" aria-selected="true">
+                        <ion-icon name="grid-outline" aria-hidden="true"></ion-icon> Overview
+                    </button>
+                    <button class="admin-tab" data-panel="tours" role="tab" aria-selected="false">
+                        <ion-icon name="compass-outline" aria-hidden="true"></ion-icon> Tours
+                    </button>
+                    <button class="admin-tab" data-panel="bookings" role="tab" aria-selected="false">
+                        <ion-icon name="calendar-outline" aria-hidden="true"></ion-icon> Bookings
+                    </button>
+                    <button class="admin-tab" data-panel="blogs" role="tab" aria-selected="false">
+                        <ion-icon name="newspaper-outline" aria-hidden="true"></ion-icon> Blogs
+                    </button>
+                    <button class="admin-tab" data-panel="reviews" role="tab" aria-selected="false">
+                        <ion-icon name="star-outline" aria-hidden="true"></ion-icon> Reviews
+                    </button>
+                    <button class="admin-tab" data-panel="messages" role="tab" aria-selected="false">
+                        <ion-icon name="mail-outline" aria-hidden="true"></ion-icon> Messages
+                    </button>
+                    <button class="admin-tab" data-panel="users" role="tab" aria-selected="false">
+                        <ion-icon name="people-outline" aria-hidden="true"></ion-icon> Users
+                    </button>
+                    <button class="admin-tab logout-tab" id="admin-logout">
+                        <ion-icon name="log-out-outline" aria-hidden="true"></ion-icon> Logout
+                    </button>
+                </div>
+
+                <!-- ═══ OVERVIEW PANEL ═══ -->
+                <div class="admin-panel active" id="panel-overview" role="tabpanel">
+                    <div class="stats-grid" id="stats-grid">
+                        <div class="stat-card stat-users">
+                            <ion-icon name="people" aria-hidden="true"></ion-icon>
+                            <div class="stat-info">
+                                <span class="stat-value" id="stat-users">0</span>
+                                <span class="stat-label">Total Users</span>
+                            </div>
+                        </div>
+                        <div class="stat-card stat-tours">
+                            <ion-icon name="compass" aria-hidden="true"></ion-icon>
+                            <div class="stat-info">
+                                <span class="stat-value" id="stat-tours">0</span>
+                                <span class="stat-label">Total Tours</span>
+                            </div>
+                        </div>
+                        <div class="stat-card stat-bookings">
+                            <ion-icon name="calendar" aria-hidden="true"></ion-icon>
+                            <div class="stat-info">
+                                <span class="stat-value" id="stat-bookings">0</span>
+                                <span class="stat-label">Total Bookings</span>
+                            </div>
+                        </div>
+                        <div class="stat-card stat-revenue">
+                            <ion-icon name="cash" aria-hidden="true"></ion-icon>
+                            <div class="stat-info">
+                                <span class="stat-value" id="stat-revenue">$0</span>
+                                <span class="stat-label">Total Revenue</span>
+                            </div>
+                        </div>
+                        <div class="stat-card stat-pending">
+                            <ion-icon name="hourglass" aria-hidden="true"></ion-icon>
+                            <div class="stat-info">
+                                <span class="stat-value" id="stat-pending">0</span>
+                                <span class="stat-label">Pending Bookings</span>
+                            </div>
+                        </div>
+                        <div class="stat-card stat-messages">
+                            <ion-icon name="mail-unread" aria-hidden="true"></ion-icon>
+                            <div class="stat-info">
+                                <span class="stat-value" id="stat-messages">0</span>
+                                <span class="stat-label">Unread Messages</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Bookings -->
+                    <div class="dashboard-card">
+                        <h3 class="h3 dashboard-card-title">Recent Bookings</h3>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Tour</th>
+                                        <th>Date</th>
+                                        <th>Guests</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recent-bookings-body">
+                                    <tr>
+                                        <td colspan="6" class="table-loading">Loading...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Popular Tours -->
+                    <div class="dashboard-card">
+                        <h3 class="h3 dashboard-card-title">Popular Tours</h3>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Tour</th>
+                                        <th>Price</th>
+                                        <th>Rating</th>
+                                        <th>Bookings</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="popular-tours-body">
+                                    <tr>
+                                        <td colspan="4" class="table-loading">Loading...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ═══ TOURS PANEL ═══ -->
+                <div class="admin-panel" id="panel-tours" role="tabpanel">
+                    <div class="panel-header">
+                        <h3 class="h3">Manage Tours</h3>
+                        <button class="btn btn-primary" id="add-tour-btn">
+                            <ion-icon name="add-circle-outline" aria-hidden="true"></ion-icon> Add Tour
+                        </button>
+                    </div>
+
+                    <!-- Add/Edit Tour Form -->
+                    <div class="dashboard-card hidden" id="tour-form-card">
+                        <h4 class="h3" id="tour-form-title">Add New Tour</h4>
+                        <form id="tour-form" novalidate>
+                            <input type="hidden" id="tour-edit-id">
+                            <div class="form-row">
+                                <div class="form-group"><label for="tf-title">Title</label><input type="text"
+                                        id="tf-title" required placeholder="Tour title"></div>
+                                <div class="form-group"><label for="tf-location">Location</label><input type="text"
+                                        id="tf-location" required placeholder="City"></div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group"><label for="tf-country">Country</label><input type="text"
+                                        id="tf-country" placeholder="Country"></div>
+                                <div class="form-group"><label for="tf-price">Price ($)</label><input type="number"
+                                        id="tf-price" required min="1" placeholder="50"></div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group"><label for="tf-duration">Duration</label><input type="text"
+                                        id="tf-duration" placeholder="e.g. 10 Days"></div>
+                                <div class="form-group"><label for="tf-duration-days">Duration (Days)</label><input
+                                        type="number" id="tf-duration-days" min="1" placeholder="10"></div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group"><label for="tf-difficulty">Difficulty</label>
+                                    <select id="tf-difficulty">
+                                        <option value="Easy">Easy</option>
+                                        <option value="Moderate">Moderate</option>
+                                        <option value="Challenging">Challenging</option>
+                                    </select>
+                                </div>
+                                <div class="form-group"><label for="tf-max-group">Max Group Size</label><input
+                                        type="number" id="tf-max-group" min="1" value="15"></div>
+                            </div>
+                            <div class="form-group"><label for="tf-image">Image URL</label><input type="text"
+                                    id="tf-image" placeholder="./assets/images/..."></div>
+                            <div class="form-group"><label for="tf-description">Description</label><textarea
+                                    id="tf-description" rows="4" placeholder="Tour description..."></textarea></div>
+                            <div class="form-group"><label for="tf-highlights">Highlights (comma
+                                    separated)</label><input type="text" id="tf-highlights"
+                                    placeholder="Highlight 1, Highlight 2..."></div>
+                            <div class="form-group">
+                                <label><input type="checkbox" id="tf-featured"> Featured Tour</label>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary" id="tour-save-btn">Save Tour</button>
+                                <button type="button" class="btn btn-outline" id="tour-cancel-btn">Cancel</button>
+                            </div>
+                            <div class="form-feedback" aria-live="polite" id="tour-form-feedback"></div>
+                        </form>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Location</th>
+                                    <th>Price</th>
+                                    <th>Rating</th>
+                                    <th>Featured</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-tours-body">
+                                <tr>
+                                    <td colspan="7" class="table-loading">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ═══ BOOKINGS PANEL ═══ -->
+                <div class="admin-panel" id="panel-bookings" role="tabpanel">
+                    <div class="panel-header">
+                        <h3 class="h3">All Bookings</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Tour</th>
+                                    <th>Date</th>
+                                    <th>Guests</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Payment</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-bookings-body">
+                                <tr>
+                                    <td colspan="8" class="table-loading">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ═══ BLOGS PANEL ═══ -->
+                <div class="admin-panel" id="panel-blogs" role="tabpanel">
+                    <div class="panel-header">
+                        <h3 class="h3">Manage Blog Posts</h3>
+                        <button class="btn btn-primary" id="add-blog-btn">
+                            <ion-icon name="add-circle-outline" aria-hidden="true"></ion-icon> Add Post
+                        </button>
+                    </div>
+
+                    <div class="dashboard-card hidden" id="blog-form-card">
+                        <h4 class="h3" id="blog-form-title">Add New Blog Post</h4>
+                        <form id="blog-form" novalidate>
+                            <input type="hidden" id="blog-edit-id">
+                            <div class="form-group"><label for="bf-title">Title</label><input type="text" id="bf-title"
+                                    required placeholder="Post title"></div>
+                            <div class="form-row">
+                                <div class="form-group"><label for="bf-category">Category</label><input type="text"
+                                        id="bf-category" placeholder="Travel Tips"></div>
+                                <div class="form-group"><label for="bf-author">Author</label><input type="text"
+                                        id="bf-author" placeholder="Author name"></div>
+                            </div>
+                            <div class="form-group"><label for="bf-image">Image URL</label><input type="text"
+                                    id="bf-image" placeholder="./assets/images/..."></div>
+                            <div class="form-group"><label for="bf-excerpt">Excerpt</label><textarea id="bf-excerpt"
+                                    rows="2" placeholder="Short summary..."></textarea></div>
+                            <div class="form-group"><label for="bf-content">Content</label><textarea id="bf-content"
+                                    rows="8" placeholder="Full article content..."></textarea></div>
+                            <div class="form-group"><label for="bf-tags">Tags (comma separated)</label><input
+                                    type="text" id="bf-tags" placeholder="travel, tips, adventure"></div>
+                            <div class="form-group">
+                                <label><input type="checkbox" id="bf-featured"> Featured Post</label>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Post</button>
+                                <button type="button" class="btn btn-outline" id="blog-cancel-btn">Cancel</button>
+                            </div>
+                            <div class="form-feedback" aria-live="polite" id="blog-form-feedback"></div>
+                        </form>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-blogs-body">
+                                <tr>
+                                    <td colspan="5" class="table-loading">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ═══ REVIEWS PANEL ═══ -->
+                <div class="admin-panel" id="panel-reviews" role="tabpanel">
+                    <div class="panel-header">
+                        <h3 class="h3">Review Moderation</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Tour</th>
+                                    <th>Rating</th>
+                                    <th>Comment</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-reviews-body">
+                                <tr>
+                                    <td colspan="6" class="table-loading">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ═══ MESSAGES PANEL ═══ -->
+                <div class="admin-panel" id="panel-messages" role="tabpanel">
+                    <div class="panel-header">
+                        <h3 class="h3">Contact Messages</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Subject</th>
+                                    <th>Message</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-messages-body">
+                                <tr>
+                                    <td colspan="7" class="table-loading">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ═══ USERS PANEL ═══ -->
+                <div class="admin-panel" id="panel-users" role="tabpanel">
+                    <div class="panel-header">
+                        <h3 class="h3">User Management</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Joined</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-users-body">
+                                <tr>
+                                    <td colspan="5" class="table-loading">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="background-image: url('./assets/images/footer-bg.png')">
+        <div class="container">
+            <div class="footer-bottom">
+                <a href="/index.html" class="logo">TripWise</a>
+                <p class="copyright">&copy; 2026 <a href="#" class="copyright-link">Naitik Agrawal</a>. All Rights
+                    Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/js/api.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script>
+        // Auth guard
+        if (!TripWise.isLoggedIn() || !TripWise.isAdmin()) {
+            window.location.href = '/auth.html';
+        }
+
+        const adminUser = TripWise.getUser();
+        if (adminUser) document.getElementById('admin-name').textContent = adminUser.name;
+
+        // Tab switching
+        document.querySelectorAll('.admin-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const panel = tab.dataset.panel;
+                if (!panel) return;
+                document.querySelectorAll('.admin-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+                document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
+                document.getElementById(`panel-${panel}`).classList.add('active');
+
+                // Load data for panel
+                if (panel === 'overview') loadOverview();
+                if (panel === 'tours') loadAdminTours();
+                if (panel === 'bookings') loadAdminBookings();
+                if (panel === 'blogs') loadAdminBlogs();
+                if (panel === 'reviews') loadAdminReviews();
+                if (panel === 'messages') loadAdminMessages();
+                if (panel === 'users') loadAdminUsers();
+            });
+        });
+
+        document.getElementById('admin-logout').addEventListener('click', () => TripWise.logout());
+
+        // ── OVERVIEW ──
+        async function loadOverview() {
+            try {
+                const stats = await TripWise.getAdminStats();
+                document.getElementById('stat-users').textContent = stats.overview.totalUsers;
+                document.getElementById('stat-tours').textContent = stats.overview.totalTours;
+                document.getElementById('stat-bookings').textContent = stats.overview.totalBookings;
+                document.getElementById('stat-revenue').textContent = TripWise.formatPrice(stats.overview.totalRevenue);
+                document.getElementById('stat-pending').textContent = stats.overview.pendingBookings;
+                document.getElementById('stat-messages').textContent = stats.overview.unreadMessages;
+
+                // Recent bookings
+                const rb = document.getElementById('recent-bookings-body');
+                if (stats.recentBookings.length === 0) {
+                    rb.innerHTML = '<tr><td colspan="6">No bookings yet</td></tr>';
+                } else {
+                    rb.innerHTML = stats.recentBookings.slice(0, 5).map(b => `
+            <tr>
+              <td>${b.userName}</td>
+              <td>${b.tourTitle}</td>
+              <td>${TripWise.formatDate(b.date)}</td>
+              <td>${b.guests}</td>
+              <td>${TripWise.formatPrice(b.totalPrice)}</td>
+              <td><span class="status-badge status-${b.status}">${b.status}</span></td>
+            </tr>
+          `).join('');
+                }
+
+                // Popular tours
+                const pt = document.getElementById('popular-tours-body');
+                if (stats.popularTours.length === 0) {
+                    pt.innerHTML = '<tr><td colspan="4">No tours yet</td></tr>';
+                } else {
+                    pt.innerHTML = stats.popularTours.map(t => `
+            <tr>
+              <td>${t.title}</td>
+              <td>${TripWise.formatPrice(t.price)}</td>
+              <td>${TripWise.renderStars(t.rating)} (${t.reviewCount})</td>
+              <td>${t.bookingCount}</td>
+            </tr>
+          `).join('');
+                }
+            } catch (err) { console.error('Failed to load overview:', err); }
+        }
+
+        // ── TOURS MANAGEMENT ──
+        async function loadAdminTours() {
+            try {
+                const result = await TripWise.getTours({ limit: 50 });
+                const tbody = document.getElementById('admin-tours-body');
+                if (result.data.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="7">No tours found</td></tr>';
+                    return;
+                }
+                tbody.innerHTML = result.data.map(t => `
+          <tr>
+            <td><img src="${t.image}" alt="${t.title}" width="80" height="50" style="border-radius:6px;object-fit:cover"></td>
+            <td>${t.title}</td>
+            <td>${t.location}, ${t.country}</td>
+            <td>${TripWise.formatPrice(t.price)}</td>
+            <td>${TripWise.renderStars(t.rating)}</td>
+            <td>${t.featured ? '⭐' : '-'}</td>
+            <td class="action-btns">
+              <button class="btn btn-sm btn-outline edit-tour" data-id="${t.id}" aria-label="Edit tour">Edit</button>
+              <button class="btn btn-sm btn-danger delete-tour" data-id="${t.id}" aria-label="Delete tour">Delete</button>
+            </td>
+          </tr>
+        `).join('');
+
+                // Edit buttons
+                document.querySelectorAll('.edit-tour').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        const tour = result.data.find(t => t.id === btn.dataset.id);
+                        if (!tour) return;
+                        document.getElementById('tour-edit-id').value = tour.id;
+                        document.getElementById('tf-title').value = tour.title;
+                        document.getElementById('tf-location').value = tour.location;
+                        document.getElementById('tf-country').value = tour.country;
+                        document.getElementById('tf-price').value = tour.price;
+                        document.getElementById('tf-duration').value = tour.duration;
+                        document.getElementById('tf-duration-days').value = tour.durationDays;
+                        document.getElementById('tf-difficulty').value = tour.difficulty;
+                        document.getElementById('tf-max-group').value = tour.maxGroupSize;
+                        document.getElementById('tf-image').value = tour.image;
+                        document.getElementById('tf-description').value = tour.description;
+                        document.getElementById('tf-highlights').value = (tour.highlights || []).join(', ');
+                        document.getElementById('tf-featured').checked = tour.featured;
+                        document.getElementById('tour-form-title').textContent = 'Edit Tour';
+                        document.getElementById('tour-form-card').classList.remove('hidden');
+                        document.getElementById('tour-form-card').scrollIntoView({ behavior: 'smooth' });
+                    });
+                });
+
+                // Delete buttons
+                document.querySelectorAll('.delete-tour').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        if (!confirm('Delete this tour?')) return;
+                        try {
+                            await TripWise.deleteTour(btn.dataset.id);
+                            TripWise.showToast('Tour deleted!');
+                            loadAdminTours();
+                        } catch (err) { TripWise.showToast(err.message, 'error'); }
+                    });
+                });
+            } catch (err) { console.error('Failed to load tours:', err); }
+        }
+
+        // Add tour button
+        document.getElementById('add-tour-btn').addEventListener('click', () => {
+            document.getElementById('tour-form').reset();
+            document.getElementById('tour-edit-id').value = '';
+            document.getElementById('tour-form-title').textContent = 'Add New Tour';
+            document.getElementById('tour-form-card').classList.remove('hidden');
+            document.getElementById('tour-form-card').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('tour-cancel-btn').addEventListener('click', () => {
+            document.getElementById('tour-form-card').classList.add('hidden');
+        });
+
+        document.getElementById('tour-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const feedback = document.getElementById('tour-form-feedback');
+            const editId = document.getElementById('tour-edit-id').value;
+            const tourData = {
+                title: document.getElementById('tf-title').value,
+                location: document.getElementById('tf-location').value,
+                country: document.getElementById('tf-country').value,
+                price: document.getElementById('tf-price').value,
+                duration: document.getElementById('tf-duration').value,
+                durationDays: document.getElementById('tf-duration-days').value,
+                difficulty: document.getElementById('tf-difficulty').value,
+                maxGroupSize: document.getElementById('tf-max-group').value,
+                image: document.getElementById('tf-image').value,
+                description: document.getElementById('tf-description').value,
+                highlights: document.getElementById('tf-highlights').value.split(',').map(s => s.trim()).filter(Boolean),
+                featured: document.getElementById('tf-featured').checked
+            };
+
+            try {
+                if (editId) {
+                    await TripWise.updateTour(editId, tourData);
+                    feedback.textContent = 'Tour updated!';
+                } else {
+                    await TripWise.createTour(tourData);
+                    feedback.textContent = 'Tour created!';
+                }
+                feedback.className = 'form-feedback success';
+                setTimeout(() => {
+                    document.getElementById('tour-form-card').classList.add('hidden');
+                    loadAdminTours();
+                }, 1000);
+            } catch (err) {
+                feedback.textContent = err.message;
+                feedback.className = 'form-feedback error';
+            }
+        });
+
+        // ── BOOKINGS MANAGEMENT ──
+        async function loadAdminBookings() {
+            try {
+                const result = await TripWise.getBookings({ limit: 50 });
+                const tbody = document.getElementById('admin-bookings-body');
+                if (result.data.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="8">No bookings yet</td></tr>';
+                    return;
+                }
+                tbody.innerHTML = result.data.map(b => `
+          <tr>
+            <td>${b.userName}</td>
+            <td>${b.tourTitle}</td>
+            <td>${TripWise.formatDate(b.date)}</td>
+            <td>${b.guests}</td>
+            <td>${TripWise.formatPrice(b.totalPrice)}</td>
+            <td><span class="status-badge status-${b.status}">${b.status}</span></td>
+            <td><span class="status-badge status-${b.paymentStatus}">${b.paymentStatus}</span></td>
+            <td class="action-btns">
+              ${b.status === 'pending' ? `
+                <button class="btn btn-sm btn-primary confirm-booking" data-id="${b.id}">Confirm</button>
+                <button class="btn btn-sm btn-danger cancel-booking" data-id="${b.id}">Cancel</button>
+              ` : '-'}
+            </td>
+          </tr>
+        `).join('');
+
+                document.querySelectorAll('.confirm-booking').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        try {
+                            await TripWise.updateBookingStatus(btn.dataset.id, 'confirmed', 'paid');
+                            TripWise.showToast('Booking confirmed!');
+                            loadAdminBookings();
+                        } catch (err) { TripWise.showToast(err.message, 'error'); }
+                    });
+                });
+
+                document.querySelectorAll('.cancel-booking').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        try {
+                            await TripWise.updateBookingStatus(btn.dataset.id, 'cancelled', 'refunded');
+                            TripWise.showToast('Booking cancelled.');
+                            loadAdminBookings();
+                        } catch (err) { TripWise.showToast(err.message, 'error'); }
+                    });
+                });
+            } catch (err) { console.error('Failed to load bookings:', err); }
+        }
+
+        // ── BLOGS MANAGEMENT ──
+        async function loadAdminBlogs() {
+            try {
+                const result = await TripWise.getBlogs({ limit: 50 });
+                const tbody = document.getElementById('admin-blogs-body');
+                if (result.data.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5">No blog posts yet</td></tr>';
+                    return;
+                }
+                tbody.innerHTML = result.data.map(b => `
+          <tr>
+            <td>${b.title}</td>
+            <td>${b.author}</td>
+            <td>${b.category}</td>
+            <td>${TripWise.formatDate(b.date)}</td>
+            <td class="action-btns">
+              <button class="btn btn-sm btn-outline edit-blog" data-id="${b.id}">Edit</button>
+              <button class="btn btn-sm btn-danger delete-blog" data-id="${b.id}">Delete</button>
+            </td>
+          </tr>
+        `).join('');
+
+                document.querySelectorAll('.edit-blog').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const blog = result.data.find(b => b.id === btn.dataset.id);
+                        if (!blog) return;
+                        document.getElementById('blog-edit-id').value = blog.id;
+                        document.getElementById('bf-title').value = blog.title;
+                        document.getElementById('bf-category').value = blog.category;
+                        document.getElementById('bf-author').value = blog.author;
+                        document.getElementById('bf-image').value = blog.image;
+                        document.getElementById('bf-excerpt').value = blog.excerpt;
+                        document.getElementById('bf-content').value = blog.content;
+                        document.getElementById('bf-tags').value = (blog.tags || []).join(', ');
+                        document.getElementById('bf-featured').checked = blog.featured;
+                        document.getElementById('blog-form-title').textContent = 'Edit Blog Post';
+                        document.getElementById('blog-form-card').classList.remove('hidden');
+                    });
+                });
+
+                document.querySelectorAll('.delete-blog').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        if (!confirm('Delete this post?')) return;
+                        try { await TripWise.deleteBlog(btn.dataset.id); TripWise.showToast('Post deleted!'); loadAdminBlogs(); }
+                        catch (err) { TripWise.showToast(err.message, 'error'); }
+                    });
+                });
+            } catch (err) { console.error('Failed to load blogs:', err); }
+        }
+
+        document.getElementById('add-blog-btn').addEventListener('click', () => {
+            document.getElementById('blog-form').reset();
+            document.getElementById('blog-edit-id').value = '';
+            document.getElementById('blog-form-title').textContent = 'Add New Blog Post';
+            document.getElementById('blog-form-card').classList.remove('hidden');
+        });
+
+        document.getElementById('blog-cancel-btn').addEventListener('click', () => {
+            document.getElementById('blog-form-card').classList.add('hidden');
+        });
+
+        document.getElementById('blog-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const feedback = document.getElementById('blog-form-feedback');
+            const editId = document.getElementById('blog-edit-id').value;
+            const blogData = {
+                title: document.getElementById('bf-title').value,
+                category: document.getElementById('bf-category').value,
+                author: document.getElementById('bf-author').value,
+                image: document.getElementById('bf-image').value,
+                excerpt: document.getElementById('bf-excerpt').value,
+                content: document.getElementById('bf-content').value,
+                tags: document.getElementById('bf-tags').value.split(',').map(s => s.trim()).filter(Boolean),
+                featured: document.getElementById('bf-featured').checked
+            };
+            try {
+                if (editId) { await TripWise.updateBlog(editId, blogData); feedback.textContent = 'Post updated!'; }
+                else { await TripWise.createBlog(blogData); feedback.textContent = 'Post created!'; }
+                feedback.className = 'form-feedback success';
+                setTimeout(() => { document.getElementById('blog-form-card').classList.add('hidden'); loadAdminBlogs(); }, 1000);
+            } catch (err) { feedback.textContent = err.message; feedback.className = 'form-feedback error'; }
+        });
+
+        // ── REVIEWS MODERATION ──
+        async function loadAdminReviews() {
+            try {
+                const result = await TripWise.getReviews({ status: 'pending', limit: 50 });
+                const approved = await TripWise.getReviews({ status: 'approved', limit: 50 });
+                const all = [...result.data, ...approved.data];
+                const tbody = document.getElementById('admin-reviews-body');
+                if (all.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="6">No reviews</td></tr>';
+                    return;
+                }
+                tbody.innerHTML = all.map(r => `
+          <tr>
+            <td>${r.userName}</td>
+            <td>${r.tourId}</td>
+            <td>${TripWise.renderStars(r.rating)}</td>
+            <td class="review-comment-cell">${r.comment || '-'}</td>
+            <td><span class="status-badge status-${r.status}">${r.status}</span></td>
+            <td class="action-btns">
+              ${r.status === 'pending' ? `
+                <button class="btn btn-sm btn-primary approve-review" data-id="${r.id}">Approve</button>
+                <button class="btn btn-sm btn-danger reject-review" data-id="${r.id}">Reject</button>
+              ` : '-'}
+            </td>
+          </tr>
+        `).join('');
+
+                document.querySelectorAll('.approve-review').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        try { await TripWise.moderateReview(btn.dataset.id, 'approved'); TripWise.showToast('Review approved!'); loadAdminReviews(); }
+                        catch (err) { TripWise.showToast(err.message, 'error'); }
+                    });
+                });
+                document.querySelectorAll('.reject-review').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        try { await TripWise.moderateReview(btn.dataset.id, 'rejected'); TripWise.showToast('Review rejected.'); loadAdminReviews(); }
+                        catch (err) { TripWise.showToast(err.message, 'error'); }
+                    });
+                });
+            } catch (err) { console.error('Failed to load reviews:', err); }
+        }
+
+        // ── MESSAGES ──
+        async function loadAdminMessages() {
+            try {
+                const result = await TripWise.getContacts({ limit: 50 });
+                const tbody = document.getElementById('admin-messages-body');
+                if (result.data.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="7">No messages</td></tr>';
+                    return;
+                }
+                tbody.innerHTML = result.data.map(c => `
+          <tr class="${c.status === 'unread' ? 'row-unread' : ''}">
+            <td>${c.name}</td>
+            <td>${c.email}</td>
+            <td>${c.subject}</td>
+            <td class="message-cell">${c.message}</td>
+            <td><span class="status-badge status-${c.status}">${c.status}</span></td>
+            <td>${TripWise.formatDate(c.createdAt)}</td>
+            <td class="action-btns">
+              ${c.status === 'unread' ? `<button class="btn btn-sm btn-outline mark-read" data-id="${c.id}">Mark Read</button>` : '✓'}
+            </td>
+          </tr>
+        `).join('');
+
+                document.querySelectorAll('.mark-read').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        try { await TripWise.markContactRead(btn.dataset.id); loadAdminMessages(); }
+                        catch (err) { TripWise.showToast(err.message, 'error'); }
+                    });
+                });
+            } catch (err) { console.error('Failed to load messages:', err); }
+        }
+
+        // ── USERS ──
+        async function loadAdminUsers() {
+            try {
+                const users = await TripWise.getUsers();
+                const tbody = document.getElementById('admin-users-body');
+                if (users.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5">No users</td></tr>';
+                    return;
+                }
+                tbody.innerHTML = users.map(u => `
+          <tr>
+            <td>${u.name}</td>
+            <td>${u.email}</td>
+            <td><span class="status-badge status-${u.role === 'admin' ? 'confirmed' : 'pending'}">${u.role}</span></td>
+            <td>${TripWise.formatDate(u.createdAt)}</td>
+            <td class="action-btns">
+              ${u.role === 'user' ? `<button class="btn btn-sm btn-outline make-admin" data-id="${u.id}">Make Admin</button>` : 'Admin'}
+            </td>
+          </tr>
+        `).join('');
+
+                document.querySelectorAll('.make-admin').forEach(btn => {
+                    btn.addEventListener('click', async () => {
+                        if (!confirm('Promote this user to admin?')) return;
+                        try { await TripWise.updateUserRole(btn.dataset.id, 'admin'); TripWise.showToast('User promoted!'); loadAdminUsers(); }
+                        catch (err) { TripWise.showToast(err.message, 'error'); }
+                    });
+                });
+            } catch (err) { console.error('Failed to load users:', err); }
+        }
+
+        // Initial load
+        loadOverview();
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

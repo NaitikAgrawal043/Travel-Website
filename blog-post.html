@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - TripWise</title>
+    <meta name="description" content="Read this travel article on TripWise Blog.">
+    <meta name="author" content="Naitik Agrawal">
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comforter+Brush&family=Heebo:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="top">
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <header class="header" data-header>
+        <div class="container">
+            <a href="/index.html">
+                <h1 class="logo">TripWise</h1>
+            </a>
+            <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle navigation menu"
+                aria-expanded="false">
+                <ion-icon name="menu-outline" class="open" aria-hidden="true"></ion-icon>
+                <ion-icon name="close-outline" class="close" aria-hidden="true"></ion-icon>
+            </button>
+            <nav class="navbar" id="main-nav" role="navigation" aria-label="Main navigation">
+                <ul class="navbar-list">
+                    <li><a href="/index.html" class="navbar-link">Home</a></li>
+                    <li><a href="/tours.html" class="navbar-link">Tours</a></li>
+                    <li><a href="/blog.html" class="navbar-link">Blog</a></li>
+                    <li><a href="/contact.html" class="navbar-link">Contact Us</a></li>
+                </ul>
+                <a href="/auth.html" class="btn btn-secondary">Login / Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="section blog-post-section">
+            <div class="container">
+
+                <div class="loading-state" id="loading-state">
+                    <div class="spinner"></div>
+                    <p>Loading article...</p>
+                </div>
+
+                <article class="blog-post hidden" id="blog-post">
+                    <nav class="breadcrumb" aria-label="Breadcrumb">
+                        <a href="/index.html">Home</a> <span>/</span>
+                        <a href="/blog.html">Blog</a> <span>/</span>
+                        <span id="breadcrumb-title">Article</span>
+                    </nav>
+
+                    <header class="blog-post-header">
+                        <span class="blog-category" id="blog-category"></span>
+                        <h2 class="h2 blog-post-title" id="blog-title"></h2>
+                        <div class="blog-post-meta">
+                            <div class="author-wrapper">
+                                <figure class="author-avatar">
+                                    <img id="blog-author-avatar" src="" width="40" height="40" alt="">
+                                </figure>
+                                <div>
+                                    <span class="author-name" id="blog-author"></span>
+                                    <p class="author-title" id="blog-author-title"></p>
+                                </div>
+                            </div>
+                            <time id="blog-date"></time>
+                            <span id="blog-read-time"></span>
+                        </div>
+                    </header>
+
+                    <figure class="blog-post-hero">
+                        <img id="blog-image" src="" alt="" class="img-cover" width="1200" height="600">
+                    </figure>
+
+                    <div class="blog-post-content" id="blog-content"></div>
+
+                    <div class="blog-tags" id="blog-tags"></div>
+
+                    <div class="blog-post-footer">
+                        <a href="/blog.html" class="btn btn-outline">← Back to Blog</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="background-image: url('./assets/images/footer-bg.png')">
+        <div class="container">
+            <div class="footer-bottom">
+                <a href="/index.html" class="logo">TripWise</a>
+                <p class="copyright">&copy; 2026 <a href="#" class="copyright-link">Naitik Agrawal</a>. All Rights
+                    Reserved</p>
+                <ul class="social-list">
+                    <li><a href="#" class="social-link" aria-label="Facebook"><ion-icon name="logo-facebook"
+                                aria-hidden="true"></ion-icon></a></li>
+                    <li><a href="#" class="social-link" aria-label="Twitter"><ion-icon name="logo-twitter"
+                                aria-hidden="true"></ion-icon></a></li>
+                    <li><a href="#" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"
+                                aria-hidden="true"></ion-icon></a></li>
+                    <li><a href="https://www.linkedin.com/in/naitik-agrawal-9b832128a" class="social-link"
+                            aria-label="LinkedIn"><ion-icon name="logo-linkedin" aria-hidden="true"></ion-icon></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#top" class="go-top" data-go-top aria-label="Go To Top"><ion-icon name="chevron-up-outline"></ion-icon></a>
+
+    <script src="./assets/js/api.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const blogId = params.get('id');
+
+        async function loadBlogPost() {
+            if (!blogId) { window.location.href = '/blog.html'; return; }
+
+            try {
+                const blog = await TripWise.getBlog(blogId);
+                document.getElementById('loading-state').classList.add('hidden');
+                document.getElementById('blog-post').classList.remove('hidden');
+
+                document.title = `${blog.title} - TripWise Blog`;
+                document.getElementById('breadcrumb-title').textContent = blog.title;
+                document.getElementById('blog-title').textContent = blog.title;
+                document.getElementById('blog-category').textContent = blog.category;
+                document.getElementById('blog-image').src = blog.image;
+                document.getElementById('blog-image').alt = blog.title;
+                document.getElementById('blog-author-avatar').src = blog.authorAvatar;
+                document.getElementById('blog-author-avatar').alt = blog.author;
+                document.getElementById('blog-author').textContent = blog.author;
+                document.getElementById('blog-author-title').textContent = blog.authorTitle;
+                document.getElementById('blog-date').textContent = TripWise.formatDate(blog.date);
+                document.getElementById('blog-read-time').textContent = blog.readTime;
+
+                // Convert markdown-like content to HTML
+                let content = blog.content;
+                content = content.replace(/## (.*)/g, '<h3 class="h3">$1</h3>');
+                content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                content = content.replace(/\n\n/g, '</p><p>');
+                content = content.replace(/- (.*)/g, '<li>$1</li>');
+                content = `<p>${content}</p>`;
+                content = content.replace(/<p>(<li>.*<\/li>)<\/p>/gs, '<ul>$1</ul>');
+                document.getElementById('blog-content').innerHTML = content;
+
+                if (blog.tags && blog.tags.length > 0) {
+                    document.getElementById('blog-tags').innerHTML = blog.tags
+                        .map(tag => `<span class="blog-tag">#${tag}</span>`).join('');
+                }
+            } catch (err) {
+                document.getElementById('loading-state').innerHTML = `<p class="error-text">Article not found. <a href="/blog.html">Browse all articles</a></p>`;
+            }
+        }
+        loadBlogPost();
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

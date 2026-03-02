@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Blog - TripWise</title>
+    <meta name="description"
+        content="Read the latest travel tips, guides, and stories from TripWise. Get inspired for your next adventure.">
+    <meta name="author" content="Naitik Agrawal">
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comforter+Brush&family=Heebo:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="top">
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <header class="header" data-header>
+        <div class="container">
+            <a href="/index.html">
+                <h1 class="logo">TripWise</h1>
+            </a>
+            <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle navigation menu"
+                aria-expanded="false">
+                <ion-icon name="menu-outline" class="open" aria-hidden="true"></ion-icon>
+                <ion-icon name="close-outline" class="close" aria-hidden="true"></ion-icon>
+            </button>
+            <nav class="navbar" id="main-nav" role="navigation" aria-label="Main navigation">
+                <ul class="navbar-list">
+                    <li><a href="/index.html" class="navbar-link">Home</a></li>
+                    <li><a href="/tours.html" class="navbar-link">Tours</a></li>
+                    <li><a href="/blog.html" class="navbar-link">Blog</a></li>
+                    <li><a href="/contact.html" class="navbar-link">Contact Us</a></li>
+                </ul>
+                <a href="/auth.html" class="btn btn-secondary">Login / Register</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-hero">
+            <div class="container">
+                <p class="section-subtitle">Our Blog</p>
+                <h2 class="h2 section-title">Latest News & Articles</h2>
+                <p class="page-hero-text">Travel stories, tips, and inspiration from our team</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <ul class="blog-list" id="blog-list">
+                    <!-- Blogs loaded dynamically -->
+                </ul>
+                <div class="empty-state hidden" id="empty-state">
+                    <ion-icon name="newspaper-outline" aria-hidden="true"></ion-icon>
+                    <h3>No blog posts yet</h3>
+                    <p>Check back soon for travel stories and tips!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" style="background-image: url('./assets/images/footer-bg.png')">
+        <div class="container">
+            <div class="footer-bottom">
+                <a href="/index.html" class="logo">TripWise</a>
+                <p class="copyright">&copy; 2026 <a href="#" class="copyright-link">Naitik Agrawal</a>. All Rights
+                    Reserved</p>
+                <ul class="social-list">
+                    <li><a href="#" class="social-link" aria-label="Facebook"><ion-icon name="logo-facebook"
+                                aria-hidden="true"></ion-icon></a></li>
+                    <li><a href="#" class="social-link" aria-label="Twitter"><ion-icon name="logo-twitter"
+                                aria-hidden="true"></ion-icon></a></li>
+                    <li><a href="#" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"
+                                aria-hidden="true"></ion-icon></a></li>
+                    <li><a href="https://www.linkedin.com/in/naitik-agrawal-9b832128a" class="social-link"
+                            aria-label="LinkedIn"><ion-icon name="logo-linkedin" aria-hidden="true"></ion-icon></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#top" class="go-top" data-go-top aria-label="Go To Top"><ion-icon name="chevron-up-outline"></ion-icon></a>
+
+    <script src="./assets/js/api.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script>
+        async function loadBlogs() {
+            try {
+                const result = await TripWise.getBlogs({ limit: 20 });
+                const list = document.getElementById('blog-list');
+
+                if (result.data.length === 0) {
+                    document.getElementById('empty-state').classList.remove('hidden');
+                    return;
+                }
+
+                list.innerHTML = result.data.map(blog => `
+          <li>
+            <div class="blog-card">
+              <figure class="card-banner">
+                <a href="/blog-post.html?id=${blog.slug || blog.id}">
+                  <img src="${blog.image}" width="740" height="518" loading="lazy" alt="${blog.title}" class="img-cover">
+                </a>
+                <span class="card-badge">
+                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+                  <time>${TripWise.formatDate(blog.date)}</time>
+                </span>
+              </figure>
+              <div class="card-content">
+                <div class="card-wrapper">
+                  <div class="author-wrapper">
+                    <figure class="author-avatar">
+                      <img src="${blog.authorAvatar}" width="30" height="30" alt="${blog.author}">
+                    </figure>
+                    <div>
+                      <span class="author-name">${blog.author}</span>
+                      <p class="author-title">${blog.authorTitle}</p>
+                    </div>
+                  </div>
+                  <span class="publish-time">${blog.readTime}</span>
+                </div>
+                <h3 class="card-title">
+                  <a href="/blog-post.html?id=${blog.slug || blog.id}">${blog.title}</a>
+                </h3>
+                <p class="blog-excerpt">${blog.excerpt}</p>
+                <a href="/blog-post.html?id=${blog.slug || blog.id}" class="btn-link">
+                  <span>Read More</span>
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+              </div>
+            </div>
+          </li>
+        `).join('');
+            } catch (err) {
+                console.error('Failed to load blogs:', err);
+            }
+        }
+        loadBlogs();
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

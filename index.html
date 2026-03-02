@@ -5,30 +5,67 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TripWise - Travel Smart Travel Wise.</title>
+  <title>TripWise - Book Trusted Tours & Explore Destinations Worldwide</title>
 
-  <!-- 
-    - favicon
-  -->
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="TripWise - Book trusted tours and explore destinations worldwide. Discover affordable travel packages to Maldives, Thailand, India, Nepal, Indonesia and more.">
+  <meta name="keywords" content="travel, tours, booking, destinations, travel agency, holiday packages, adventure tours, TripWise">
+  <meta name="author" content="Naitik Agrawal">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tripwise.com">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="TripWise - Book Trusted Tours & Explore Destinations Worldwide">
+  <meta property="og:description" content="Discover affordable travel packages to Maldives, Thailand, India, Nepal, Indonesia and more. Trusted by thousands of travelers.">
+  <meta property="og:image" content="./assets/images/hero-banner.png">
+  <meta property="og:url" content="https://tripwise.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TripWise">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TripWise - Book Trusted Tours & Explore Destinations Worldwide">
+  <meta name="twitter:description" content="Discover affordable travel packages worldwide. Trusted by thousands of travelers.">
+  <meta name="twitter:image" content="./assets/images/hero-banner.png">
+
+  <!-- Favicon -->
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./favicon.svg">
 
-  <!-- 
-    - custom css link
-  -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!-- 
-    - google font link
-  -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Comforter+Brush&family=Heebo:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "TripWise",
+    "description": "Book trusted tours and explore destinations worldwide",
+    "url": "https://tripwise.com",
+    "logo": "./favicon.svg",
+    "foundingDate": "2025",
+    "founder": {
+      "@type": "Person",
+      "name": "Naitik Agrawal"
+    }
+  }
+  </script>
+
 </head>
 
 <body id="top">
+
+  <!-- Skip to main content (Accessibility) -->
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
 
   <!-- 
     - #HEADER
@@ -41,18 +78,19 @@
         <h1 class="logo">TripWise</h1>
       </a>
 
-      <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle Menu">
-        <ion-icon name="menu-outline" class="open"></ion-icon>
-        <ion-icon name="close-outline" class="close"></ion-icon>
+      <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
+        <ion-icon name="menu-outline" class="open" aria-hidden="true"></ion-icon>
+        <ion-icon name="close-outline" class="close" aria-hidden="true"></ion-icon>
       </button>
 
-      <nav class="navbar">
+      <nav class="navbar" id="main-nav" role="navigation" aria-label="Main navigation">
 
         <ul class="navbar-list">
 
           <li>
             <a href="#" class="navbar-link">Home</a>
           </li>
+          
 
           <li>
             <a href="#abt" class="navbar-link">About Us</a>
@@ -76,7 +114,7 @@
 
         </ul>
 
-        <a href="#" class="btn btn-secondary">Booking Now</a>
+        <a href="auth.html" class="btn btn-secondary" aria-label="Book a tour now">Booking Now</a>
 
       </nav>
 
@@ -87,7 +125,7 @@
 
 
 
-  <main>
+  <main id="main-content">
     <article>
 
       <!-- 
@@ -115,9 +153,9 @@
             </p>
 
             <div class="btn-group">
-              <a href="#" class="btn btn-primary">Contact Us</a>
+              <a href="contact.html" class="btn btn-primary" aria-label="Contact TripWise">Contact Us</a>
 
-              <a href="#" class="btn btn-outline">Learn More</a>
+              <a href="#abt" class="btn btn-outline" aria-label="Learn more about TripWise">Learn More</a>
             </div>
 
           </div>
@@ -469,7 +507,7 @@
           </div>
 
           <figure class="about-banner">
-            <img src="./assets/images/about-banner.png" width="756" height="842" loading="lazy" alt="" class="w-100">
+            <img src="./assets/images/about-banner.png" width="756" height="842" loading="lazy" alt="TripWise team exploring beautiful destinations" class="w-100">
           </figure>
 
         </div>
@@ -661,7 +699,7 @@
 
         </div>
       </section>
-    ]</div>
+    </div>
     </article>
   </main>
 
@@ -770,10 +808,12 @@
             For the latest deals and tips, travel no further than your inbox
           </p>
 
-          <form action="" class="newsletter-form">
-            <input type="email" name="email" required placeholder="Email address" class="newsletter-input">
+          <form action="" class="newsletter-form" id="newsletter-form" novalidate>
+            <label for="newsletter-email" class="sr-only">Email address</label>
+            <input type="email" id="newsletter-email" name="email" required placeholder="Email address" class="newsletter-input" aria-label="Enter your email for newsletter">
 
-            <button type="submit" class="btn btn-primary">Subscribe</button>
+            <button type="submit" class="btn btn-primary" aria-label="Subscribe to newsletter">Subscribe</button>
+            <div class="form-feedback" aria-live="polite"></div>
           </form>
 
         </div>
@@ -785,32 +825,32 @@
         <a href="#" class="logo">TripWise</a>
 
         <p class="copyright">
-          &copy; 2025 <a href="#" class="copyright-link">Naitik Agrawal</a>. All Rights Reserved
+          &copy; 2026 <a href="#" class="copyright-link">Naitik Agrawal</a>. All Rights Reserved
         </p>
 
         <ul class="social-list">
 
           <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
+            <a href="#" class="social-link" aria-label="Visit our Facebook page">
+              <ion-icon name="logo-facebook" aria-hidden="true"></ion-icon>
             </a>
           </li>
 
           <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
+            <a href="#" class="social-link" aria-label="Visit our Twitter page">
+              <ion-icon name="logo-twitter" aria-hidden="true"></ion-icon>
             </a>
           </li>
 
           <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
+            <a href="#" class="social-link" aria-label="Visit our Instagram page">
+              <ion-icon name="logo-instagram" aria-hidden="true"></ion-icon>
             </a>
           </li>
 
           <li>
-            <a href="https://www.linkedin.com/in/naitik-agrawal-9b832128a" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
+            <a href="https://www.linkedin.com/in/naitik-agrawal-9b832128a" class="social-link" aria-label="Visit Naitik's LinkedIn profile">
+              <ion-icon name="logo-linkedin" aria-hidden="true"></ion-icon>
             </a>
           </li>
 

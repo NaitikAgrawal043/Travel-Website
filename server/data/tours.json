@@ -1,0 +1,293 @@
+[
+    {
+        "id": "tour-1",
+        "title": "Explore the Ancient City of Petra",
+        "slug": "explore-petra-jordan",
+        "price": 50,
+        "duration": "12 Days",
+        "durationDays": 12,
+        "location": "Petra",
+        "country": "Jordan",
+        "description": "Discover the breathtaking ancient city of Petra, carved into rose-red cliffs. This 12-day journey takes you through Jordan's most spectacular landscapes, from the bustling streets of Amman to the serene waters of the Dead Sea. Walk through the narrow Siq passage and behold the Treasury in all its glory. Our expert local guides will share fascinating stories of the Nabataean civilization that built this wonder. Includes luxury desert camping under the stars in Wadi Rum, traditional Jordanian cuisine experiences, and visits to Jerash and Ajloun Castle.",
+        "image": "./assets/images/popular-1.jpg",
+        "gallery": [
+            "./assets/images/popular-1.jpg",
+            "./assets/images/destination-4.jpg"
+        ],
+        "rating": 4,
+        "reviewCount": 24,
+        "featured": true,
+        "highlights": [
+            "Petra Treasury Visit",
+            "Wadi Rum Desert Camp",
+            "Dead Sea Float",
+            "Local Cuisine",
+            "Expert Guides"
+        ],
+        "included": [
+            "Hotel Accommodation",
+            "Daily Breakfast & Dinner",
+            "Airport Transfers",
+            "English Speaking Guide",
+            "Entry Fees"
+        ],
+        "notIncluded": [
+            "International Flights",
+            "Travel Insurance",
+            "Personal Expenses",
+            "Tips"
+        ],
+        "maxGroupSize": 15,
+        "difficulty": "Moderate",
+        "createdAt": "2025-01-15T10:00:00.000Z"
+    },
+    {
+        "id": "tour-2",
+        "title": "Magical Malaysia Adventure",
+        "slug": "magical-malaysia-adventure",
+        "price": 50,
+        "duration": "11 Days",
+        "durationDays": 11,
+        "location": "Kuala Lumpur",
+        "country": "Malaysia",
+        "description": "Experience the vibrant culture and stunning nature of Malaysia on this unforgettable 11-day adventure. Begin in the bustling capital Kuala Lumpur, marvel at the Petronas Twin Towers, and explore the colorful streets of Chinatown. Journey to the Cameron Highlands for tea plantation tours, then head to the pristine beaches of Langkawi. Dive into crystal-clear waters, explore mangrove forests, and savor incredible Malaysian street food. This tour perfectly blends city excitement with tropical relaxation.",
+        "image": "./assets/images/popular-2.jpg",
+        "gallery": [
+            "./assets/images/popular-2.jpg",
+            "./assets/images/destination-2.jpg"
+        ],
+        "rating": 4,
+        "reviewCount": 18,
+        "featured": true,
+        "highlights": [
+            "Petronas Towers",
+            "Cameron Highlands",
+            "Langkawi Beaches",
+            "Street Food Tour",
+            "Batu Caves"
+        ],
+        "included": [
+            "4-Star Hotels",
+            "Daily Breakfast",
+            "Domestic Flights",
+            "All Transfers",
+            "Entry Fees"
+        ],
+        "notIncluded": [
+            "International Flights",
+            "Travel Insurance",
+            "Lunch & Dinner",
+            "Personal Expenses"
+        ],
+        "maxGroupSize": 20,
+        "difficulty": "Easy",
+        "createdAt": "2025-02-10T10:00:00.000Z"
+    },
+    {
+        "id": "tour-3",
+        "title": "Sun-Kissed Goa Beach Retreat",
+        "slug": "goa-beach-retreat-india",
+        "price": 60,
+        "duration": "10 Days",
+        "durationDays": 10,
+        "location": "Goa",
+        "country": "India",
+        "description": "Lose yourself in the golden beaches and vibrant nightlife of Goa, India's ultimate paradise. This 10-day retreat takes you from the lively beaches of North Goa to the tranquil shores of South Goa. Explore centuries-old Portuguese churches, spice plantations, and hidden waterfalls. Enjoy thrilling water sports, sunset cruises on the Mandovi River, and the famous Goan seafood cuisine. Whether you're seeking adventure or relaxation, Goa delivers an unforgettable experience.",
+        "image": "./assets/images/popular-3.jpg",
+        "gallery": [
+            "./assets/images/popular-3.jpg",
+            "./assets/images/destination-3.jpg"
+        ],
+        "rating": 4,
+        "reviewCount": 31,
+        "featured": true,
+        "highlights": [
+            "Beach Hopping",
+            "Spice Plantation Tour",
+            "Dudhsagar Falls",
+            "Portuguese Heritage",
+            "Water Sports"
+        ],
+        "included": [
+            "Beach Resort Stay",
+            "Daily Breakfast",
+            "Airport Transfers",
+            "Guided Tours",
+            "Water Sports Package"
+        ],
+        "notIncluded": [
+            "Flights",
+            "Travel Insurance",
+            "Nightlife & Drinks",
+            "Personal Shopping"
+        ],
+        "maxGroupSize": 12,
+        "difficulty": "Easy",
+        "createdAt": "2025-03-05T10:00:00.000Z"
+    },
+    {
+        "id": "tour-4",
+        "title": "Maldives Island Paradise",
+        "slug": "maldives-island-paradise",
+        "price": 120,
+        "duration": "7 Days",
+        "durationDays": 7,
+        "location": "Malé",
+        "country": "Maldives",
+        "description": "Escape to the crystal-clear waters and pristine white sands of the Maldives. This exclusive 7-day luxury retreat places you in an overwater villa with panoramic ocean views. Snorkel with manta rays, enjoy spa treatments, and watch spectacular sunsets over the Indian Ocean. A once-in-a-lifetime tropical experience.",
+        "image": "./assets/images/destination-1.jpg",
+        "gallery": [
+            "./assets/images/destination-1.jpg"
+        ],
+        "rating": 5,
+        "reviewCount": 42,
+        "featured": true,
+        "highlights": [
+            "Overwater Villa",
+            "Snorkeling with Manta Rays",
+            "Spa Treatments",
+            "Sunset Cruise",
+            "Local Island Visit"
+        ],
+        "included": [
+            "Overwater Villa",
+            "All Meals",
+            "Speedboat Transfers",
+            "Snorkeling Gear",
+            "Sunset Cruise"
+        ],
+        "notIncluded": [
+            "International Flights",
+            "Travel Insurance",
+            "Spa Treatments",
+            "Diving Courses"
+        ],
+        "maxGroupSize": 8,
+        "difficulty": "Easy",
+        "createdAt": "2025-04-01T10:00:00.000Z"
+    },
+    {
+        "id": "tour-5",
+        "title": "Thailand Cultural Discovery",
+        "slug": "thailand-cultural-discovery",
+        "price": 45,
+        "duration": "9 Days",
+        "durationDays": 9,
+        "location": "Bangkok",
+        "country": "Thailand",
+        "description": "Immerse yourself in the rich culture and stunning landscapes of Thailand. From the grand temples of Bangkok to the lush jungles of Chiang Mai, this 9-day journey offers a perfect blend of history, adventure, and relaxation. Visit floating markets, ride elephants ethically at sanctuaries, and relax on the beautiful beaches of Krabi.",
+        "image": "./assets/images/destination-2.jpg",
+        "gallery": [
+            "./assets/images/destination-2.jpg"
+        ],
+        "rating": 4,
+        "reviewCount": 28,
+        "featured": false,
+        "highlights": [
+            "Grand Palace",
+            "Chiang Mai Temples",
+            "Floating Market",
+            "Elephant Sanctuary",
+            "Krabi Beaches"
+        ],
+        "included": [
+            "Hotels",
+            "Daily Breakfast",
+            "Domestic Flights",
+            "Tour Guide",
+            "Entry Fees"
+        ],
+        "notIncluded": [
+            "International Flights",
+            "Travel Insurance",
+            "Lunch & Dinner",
+            "Tips"
+        ],
+        "maxGroupSize": 18,
+        "difficulty": "Easy",
+        "createdAt": "2025-05-15T10:00:00.000Z"
+    },
+    {
+        "id": "tour-6",
+        "title": "Himalayan Nepal Trek",
+        "slug": "himalayan-nepal-trek",
+        "price": 75,
+        "duration": "14 Days",
+        "durationDays": 14,
+        "location": "Kathmandu",
+        "country": "Nepal",
+        "description": "Embark on a life-changing 14-day trekking adventure in the heart of the Himalayas. Starting from Kathmandu, journey through traditional Sherpa villages, cross suspension bridges, and witness the world's tallest peaks including Everest and Annapurna. Perfect for both beginner and intermediate trekkers with experienced guides ensuring your safety throughout.",
+        "image": "./assets/images/destination-4.jpg",
+        "gallery": [
+            "./assets/images/destination-4.jpg"
+        ],
+        "rating": 5,
+        "reviewCount": 36,
+        "featured": false,
+        "highlights": [
+            "Everest Base Camp View",
+            "Sherpa Villages",
+            "Mountain Sunrises",
+            "Buddhist Monasteries",
+            "Himalayan Cuisine"
+        ],
+        "included": [
+            "Teahouse Accommodation",
+            "All Meals on Trek",
+            "Trekking Permits",
+            "Experienced Guide & Porters",
+            "Airport Transfers"
+        ],
+        "notIncluded": [
+            "International Flights",
+            "Travel Insurance",
+            "Personal Gear",
+            "Tips",
+            "Hot Showers on Trek"
+        ],
+        "maxGroupSize": 10,
+        "difficulty": "Challenging",
+        "createdAt": "2025-06-01T10:00:00.000Z"
+    },
+    {
+        "id": "tour-7",
+        "title": "Bali & Indonesia Explorer",
+        "slug": "bali-indonesia-explorer",
+        "price": 55,
+        "duration": "8 Days",
+        "durationDays": 8,
+        "location": "Jakarta",
+        "country": "Indonesia",
+        "description": "Discover the magic of Indonesia from the vibrant streets of Jakarta to the serene rice terraces of Bali. This 8-day adventure includes visits to ancient temples, volcanic landscapes, and pristine beaches. Experience Balinese ceremonies, learn to surf, and enjoy world-class spa treatments in one of the most beautiful islands on earth.",
+        "image": "./assets/images/destination-5.jpg",
+        "gallery": [
+            "./assets/images/destination-5.jpg"
+        ],
+        "rating": 4,
+        "reviewCount": 22,
+        "featured": false,
+        "highlights": [
+            "Ubud Rice Terraces",
+            "Tanah Lot Temple",
+            "Mount Batur Sunrise",
+            "Surfing Lessons",
+            "Balinese Cooking Class"
+        ],
+        "included": [
+            "Villa Accommodation",
+            "Daily Breakfast",
+            "Airport Transfers",
+            "Guided Tours",
+            "Surfing Lesson"
+        ],
+        "notIncluded": [
+            "Flights",
+            "Travel Insurance",
+            "Spa Treatments",
+            "Personal Expenses"
+        ],
+        "maxGroupSize": 14,
+        "difficulty": "Easy",
+        "createdAt": "2025-07-10T10:00:00.000Z"
+    }
+]

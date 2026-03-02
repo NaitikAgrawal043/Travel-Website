@@ -1,0 +1,68 @@
+[
+    {
+        "id": "blog-1",
+        "title": "A Good Traveler Has No Fixed Plans and Is Not Intent on Arriving",
+        "slug": "good-traveler-no-fixed-plans",
+        "excerpt": "Discover why the best journeys are the ones without a rigid itinerary. Sometimes getting lost leads to the most memorable adventures.",
+        "content": "Travel is about discovery, not just destinations. The most fulfilling journeys often come from unexpected detours and spontaneous decisions.\n\nWhen you let go of rigid plans, you open yourself to authentic experiences — a hidden café down a cobblestone alley, a sunset viewed from an uncharted hilltop, or a conversation with a local that changes your perspective forever.\n\n## Why Flexible Travel is Better\n\n**1. You discover hidden gems.** Tourist guides only show popular spots. The real magic lies off the beaten path.\n\n**2. Less stress, more joy.** Rigid schedules create anxiety. Flexibility creates freedom.\n\n**3. Meaningful connections.** When you slow down, you connect with locals and fellow travelers on a deeper level.\n\n**4. Personal growth.** Navigating the unknown builds confidence and resilience.\n\nSo next time you pack your bags, leave room for the unexpected. The best stories come from unplanned adventures.",
+        "image": "./assets/images/popular-1.jpg",
+        "author": "Naitik Agrawal",
+        "authorAvatar": "./assets/images/author-avatar.png",
+        "authorTitle": "Admin",
+        "date": "2025-12-04T10:30:00.000Z",
+        "category": "Travel Tips",
+        "tags": [
+            "travel",
+            "adventure",
+            "tips",
+            "mindset"
+        ],
+        "readTime": "5 min read",
+        "featured": true,
+        "createdAt": "2025-12-04T10:30:00.000Z"
+    },
+    {
+        "id": "blog-2",
+        "title": "You Can't Stop the Waves, but You Can Learn to Surf",
+        "slug": "learn-to-surf-travel-waves",
+        "excerpt": "From Bali to Hawaii, surfing is more than a sport — it's a way of life. Here's why every traveler should try catching a wave.",
+        "content": "Surfing captures everything that makes travel magical: the thrill of the unknown, the beauty of nature, and the satisfaction of pushing your limits.\n\n## Best Surfing Destinations for Travelers\n\n**1. Bali, Indonesia** — Uluwatu and Kuta offer waves for every skill level, plus incredible sunsets and affordable living.\n\n**2. Goa, India** — Morjim and Ashwem beaches provide calm waters perfect for beginners, surrounded by vibrant culture.\n\n**3. Krabi, Thailand** — Less crowded than Bali but equally beautiful, with consistent swells from November to March.\n\n**4. Sri Lanka** — Arugam Bay is a surfing paradise with warm water year-round and a laid-back vibe.\n\n## Tips for First-Time Surfers\n\n- Start with a foam board — they're more stable and forgiving\n- Take lessons from certified instructors\n- Respect the ocean and local surfers\n- Practice your pop-up on the beach first\n- Don't forget reef-safe sunscreen\n\nSurfing teaches you patience, persistence, and presence. Much like travel itself, it's not about perfection — it's about showing up and riding the wave.",
+        "image": "./assets/images/blog-2.jpg",
+        "author": "Anoop Saini",
+        "authorAvatar": "./assets/images/author-avatar.png",
+        "authorTitle": "Admin",
+        "date": "2025-12-04T10:30:00.000Z",
+        "category": "Adventure",
+        "tags": [
+            "surfing",
+            "adventure",
+            "water sports",
+            "beaches"
+        ],
+        "readTime": "7 min read",
+        "featured": true,
+        "createdAt": "2025-12-04T10:30:00.000Z"
+    },
+    {
+        "id": "blog-3",
+        "title": "The Tans Will Fade but the Memories Will Last Forever",
+        "slug": "memories-last-forever-travel",
+        "excerpt": "Every trip leaves an imprint on your soul. Here are ways to make your travel memories even more unforgettable.",
+        "content": "We travel not to escape life, but for life not to escape us. While souvenirs collect dust and photos fill hard drives, the memories we create while traveling become the stories that define us.\n\n## How to Make Travel Memories Last\n\n**1. Keep a travel journal.** Write down your thoughts and feelings each day. Years later, reading your entries will transport you back in time.\n\n**2. Try local food.** Taste is one of the strongest memory triggers. That street-side pad thai in Bangkok or the gelato in Rome will stay with you forever.\n\n**3. Talk to locals.** The conversations you have with people from different cultures create the richest memories.\n\n**4. Put your phone down sometimes.** While photos are great, be present in the moment. Watch that sunset with your own eyes.\n\n**5. Challenge yourself.** Whether it's paragliding in Manali or hiking Kilimanjaro, stepping outside your comfort zone creates unforgettable experiences.\n\n## The Science Behind Travel Memories\n\nResearch shows that spending money on experiences rather than things leads to greater happiness. Travel creates novel experiences that our brains are wired to remember more vividly than routine daily life.\n\nSo go ahead, book that trip. The tan lines will fade, but the memories will be your most treasured possessions.",
+        "image": "./assets/images/blog-3.jpg",
+        "author": "Naitik Agrawal",
+        "authorAvatar": "./assets/images/author-avatar.png",
+        "authorTitle": "Admin",
+        "date": "2025-12-04T10:30:00.000Z",
+        "category": "Lifestyle",
+        "tags": [
+            "memories",
+            "travel",
+            "lifestyle",
+            "tips"
+        ],
+        "readTime": "6 min read",
+        "featured": true,
+        "createdAt": "2025-12-04T10:30:00.000Z"
+    }
+]
